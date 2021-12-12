@@ -42,7 +42,8 @@
 
 ### Summary of operators
 
-![](https://github.com/shin19991207/CSC343/blob/main/Images/Operation.jpeg)
+<img src="https://github.com/shin19991207/CSC343/blob/main/Images/Operation.jpeg" width="500">
+
 
 #### Set operations
 
