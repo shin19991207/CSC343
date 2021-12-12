@@ -2,13 +2,13 @@
 
 ## Table of Contents
 
-[TOC]
+* [Midterm Review](#midterm-review)
+  * [Relational Algebra](#relational-algebra)
+  * [SQL](#sql)
 
-[Midterm Review](#midterm-review)
 
 
-
-## Midterm Review
+# Midterm Review
 
 ### Terminology 
 
@@ -38,7 +38,7 @@
 
 * Not all referential integrity constraints are foreign key constraints. R1[X] ⊆ R2[Y] is a foreign key constraint iff Y is a key for relation R2.
 
-
+## Relational Algebra
 
 ### Summary of operators
 
@@ -85,7 +85,7 @@
 - Subtract those that did occur to find those that didn’t always (These are failures.)
 - Subtract the failures fro ball to get the answer.
 
-
+## SQL
 
 ### SQL query structure
 
@@ -143,6 +143,8 @@ ORDER BY DESC;
 - Natural join
   - A NATURAL JOIN B
   - A NATURAL {LEFT|RIGHT|FULL} JOIN B
+
+
 
 ## Week 8
 
