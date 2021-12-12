@@ -51,11 +51,12 @@
   * Valid: <img src="https://render.githubusercontent.com/render/math?math=R_1(a,b,c) \cup R_2(a,b,c)">
   * Invalid: <img src="https://render.githubusercontent.com/render/math?math=R_1(a,b,c) \cup R_2(b,a,c)">
 
-| Operator   | Notation                                                     |
-| ---------- | ------------------------------------------------------------ |
-| Intersect  | <img src="https://render.githubusercontent.com/render/math?math=\cap = \bowtie"> |
-| Union      | <img src="https://render.githubusercontent.com/render/math?math=\cup"> |
-| Difference | <img src="https://render.githubusercontent.com/render/math?math=-"> |
+
+    | Operation   | Symbol                                                     |
+    | ---------- | ------------------------------------------------------------ |
+    | Intersect  | <img src="https://render.githubusercontent.com/render/math?math=\cap = \bowtie"> |
+    | Union      | <img src="https://render.githubusercontent.com/render/math?math=\cup"> |
+    | Difference | <img src="https://render.githubusercontent.com/render/math?math=-"> |
 
 
 
@@ -90,17 +91,11 @@
 
 ```sql
 CREATE VIEW name AS
-
 SELECT
-
 FROM
-
 WHERE
-
 GROUP BY
-
 HAVING
-
 ORDER BY DESC;
 ```
 
@@ -121,13 +116,9 @@ ORDER BY DESC;
 
   ```sql
   SELECT sid, dept||cnum as course, grade
-  
   FROM Took, (SELECT * 
-  
-  						FROM Offering 
-  
-  				 	  WHERE instructor = ‘Horton’) Hoffering
-  
+              FROM Offering 
+              WHERE instructor = ‘Horton’) Hoffering
   WHERE Took.oid = Hoffering.oid;
   ```
 
