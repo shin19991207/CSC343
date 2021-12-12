@@ -4,7 +4,11 @@
 
 [TOC]
 
-## Midterm
+[Midterm Review](#midterm-review)
+
+
+
+## Midterm Review
 
 ### Terminology 
 
@@ -34,53 +38,56 @@
 
 * Not all referential integrity constraints are foreign key constraints. R1[X] ⊆ R2[Y] is a foreign key constraint iff Y is a key for relation R2.
 
+
+
 ### Summary of operators
 
-[](blob:file:///acddf303-94a0-4b47-b3f3-ac5f81435d1f)
+![](https://github.com/shin19991207/CSC343/blob/main/Images/Operation.jpeg)
 
-Set operations
+#### Set operations
 
-- Must have operands with same schema: same # of attributes with same name and same order
-- Valid: ![equation_5.pdf](blob:file:///acddf303-94a0-4b47-b3f3-ac5f81435d1f)
-- Invalid: ![equation_6.pdf](blob:file:///cca85ee1-ca98-4222-aa07-f53367ec2e5c)
+* Must have operands with same schema: same # of attributes with same name and same order
+  * Valid: <img src="https://render.githubusercontent.com/render/math?math=R_1(a,b,c) \cup R_2(a,b,c)">
+  * Invalid: <img src="https://render.githubusercontent.com/render/math?math=R_1(a,b,c) \cup R_2(b,a,c)">
 
-Intersect:![equation_7.pdf](blob:file:///860575a9-17c1-4973-92a4-47b5ecaf4f32)
+| Operator   | Notation                                                     |
+| ---------- | ------------------------------------------------------------ |
+| Intersect  | <img src="https://render.githubusercontent.com/render/math?math=\cap = \bowtie"> |
+| Union      | <img src="https://render.githubusercontent.com/render/math?math=\cup"> |
+| Difference | <img src="https://render.githubusercontent.com/render/math?math=-"> |
 
-Union: ![equation_8.pdf](blob:file:///1cd7a495-2079-4647-a9b8-a6dbf1d280a7)
-
-Difference: ![equation_9.pdf](blob:file:///773d44e5-418a-4825-826f-f489aed6238e)
 
 
+### Specific types of query
 
-Specific types of query
+#### Max (min is analogous):
 
-Max (min is analogous):
+- Pair tuples and find those that are not the max.
+- Then subtract from all to find the maxes.
 
-- Pair tuples and find this that are not the max
-- Then subtract from all to find the maxes
+#### k or more:
 
-k or more:
+- Make all combos of k different tuples that satisfy the condition.
 
-- make all combos of k different tuples that satisfy the condition
+#### Exactly k:
 
-Exactly k:
+- (k or more) - ((k + 1)or more)
 
-- (k or more) - (![equation_10.pdf](blob:file:///da89c58b-5bca-45f5-9585-e4c6c4d4651c) or more)
+#### At most k:
 
-At most k:
+- All - ((k + 1)or more)
 
-- All - (![equation_11.pdf](blob:file:///3530a8d1-f6e0-48ec-b86a-3186c8b48a1f) or more)
+#### Every:
 
-Every:
-
-- make all combos that should have occurred 
-- Subtract those that did occur to find those that didn’t always. (These are failures.)
+- Make all combos that should have occurred .
+- Subtract those that did occur to find those that didn’t always (These are failures.)
 - Subtract the failures fro ball to get the answer.
 
 
 
-SQL query structure
+### SQL query structure
 
+```sql
 CREATE VIEW name AS
 
 SELECT
@@ -94,10 +101,11 @@ GROUP BY
 HAVING
 
 ORDER BY DESC;
+```
 
-Order:
+#### Order:
 
-1. From 1+ tables
+1. From 1 or more tables
 2. Where to filter rows
 3. Group by to organize
 4. Having to filter groups
@@ -106,48 +114,43 @@ Order:
 
 
 
-Subquery
+### Subquery
 
-\- Name the result
+* Name the result
 
-SELECT sid, dept||cnum as course, grade
-
-FROM Took, (SELECT * 
-
-​		 FROM Offering 
-
-​		 WHERE instructor = ‘Horton’) Hoffering
-
-WHERE Took.oid = Hoffering.oid;
+  ```sql
+  SELECT sid, dept||cnum as course, grade
+  
+  FROM Took, (SELECT * 
+  
+  						FROM Offering 
+  
+  				 	  WHERE instructor = ‘Horton’) Hoffering
+  
+  WHERE Took.oid = Hoffering.oid;
+  ```
 
 - If a subquery is guanranteed to produce exactly one tuple, the it can be used as a value.
 
 
 
-Quantifying over multiple results
+### Quantifying over multiple results
 
 - cgpa > SOME (subquery)
 - cgpa > ALL (subquery)
 
-
-
-Join
+### Join
 
 - Cartesian product:
-
-​	A CROSS JOIN B
+  - A CROSS JOIN B
 
 - Theta-join:
-
-​	A JOIN B ON C
-
-​	A {LEFT|RIGHT|FULL} JOIN B ON C
+  - A JOIN B ON C
+  - A {LEFT|RIGHT|FULL} JOIN B ON C
 
 - Natural join
-
-​	A NATURAL JOIN B
-
-​	A NATURAL {LEFT|RIGHT|FULL} JOIN B
+  - A NATURAL JOIN B
+  - A NATURAL {LEFT|RIGHT|FULL} JOIN B
 
 ## Week 8
 
