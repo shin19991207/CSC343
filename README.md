@@ -4,6 +4,151 @@
 
 [TOC]
 
+## Midterm
+
+### Terminology 
+
+* Schema: Teams(Name, HomeField, Coach)
+
+* Instance: data in a relation
+
+* Relation: table
+
+* Attribute: column
+
+* Tuple: row
+
+* Arity of a relation: number of attributes
+
+* Cardinality of a relation: number of tuples
+
+* Math relation (relational algebra) is a set of tuples: There can be no duplicate tuples. Order doesn’t matter.
+
+* Key: a minimal set of attributes such that no two tuples can have the same values on all of these attributes
+
+* Superkey: any superset of a (some) key
+
+* Foreign keys: the referring attribute is called a foreign key because it refers to an attribute that is a key in another table.
+
+* Referential integrity constraints: These R1[X] ⊆ R2[Y] relationships are a kind of referential integrity constraint.
+
+* Not all referential integrity constraints are foreign key constraints. R1[X] ⊆ R2[Y] is a foreign key constraint iff Y is a key for relation R2.
+
+### Summary of operators
+
+[](blob:file:///acddf303-94a0-4b47-b3f3-ac5f81435d1f)
+
+Set operations
+
+- Must have operands with same schema: same # of attributes with same name and same order
+- Valid: ![equation_5.pdf](blob:file:///acddf303-94a0-4b47-b3f3-ac5f81435d1f)
+- Invalid: ![equation_6.pdf](blob:file:///cca85ee1-ca98-4222-aa07-f53367ec2e5c)
+
+Intersect:![equation_7.pdf](blob:file:///860575a9-17c1-4973-92a4-47b5ecaf4f32)
+
+Union: ![equation_8.pdf](blob:file:///1cd7a495-2079-4647-a9b8-a6dbf1d280a7)
+
+Difference: ![equation_9.pdf](blob:file:///773d44e5-418a-4825-826f-f489aed6238e)
+
+
+
+Specific types of query
+
+Max (min is analogous):
+
+- Pair tuples and find this that are not the max
+- Then subtract from all to find the maxes
+
+k or more:
+
+- make all combos of k different tuples that satisfy the condition
+
+Exactly k:
+
+- (k or more) - (![equation_10.pdf](blob:file:///da89c58b-5bca-45f5-9585-e4c6c4d4651c) or more)
+
+At most k:
+
+- All - (![equation_11.pdf](blob:file:///3530a8d1-f6e0-48ec-b86a-3186c8b48a1f) or more)
+
+Every:
+
+- make all combos that should have occurred 
+- Subtract those that did occur to find those that didn’t always. (These are failures.)
+- Subtract the failures fro ball to get the answer.
+
+
+
+SQL query structure
+
+CREATE VIEW name AS
+
+SELECT
+
+FROM
+
+WHERE
+
+GROUP BY
+
+HAVING
+
+ORDER BY DESC;
+
+Order:
+
+1. From 1+ tables
+2. Where to filter rows
+3. Group by to organize
+4. Having to filter groups
+5. Select to choose what to represent
+6. Order by
+
+
+
+Subquery
+
+\- Name the result
+
+SELECT sid, dept||cnum as course, grade
+
+FROM Took, (SELECT * 
+
+​		 FROM Offering 
+
+​		 WHERE instructor = ‘Horton’) Hoffering
+
+WHERE Took.oid = Hoffering.oid;
+
+- If a subquery is guanranteed to produce exactly one tuple, the it can be used as a value.
+
+
+
+Quantifying over multiple results
+
+- cgpa > SOME (subquery)
+- cgpa > ALL (subquery)
+
+
+
+Join
+
+- Cartesian product:
+
+​	A CROSS JOIN B
+
+- Theta-join:
+
+​	A JOIN B ON C
+
+​	A {LEFT|RIGHT|FULL} JOIN B ON C
+
+- Natural join
+
+​	A NATURAL JOIN B
+
+​	A NATURAL {LEFT|RIGHT|FULL} JOIN B
+
 ## Week 8
 
 ### Minimal Basis
