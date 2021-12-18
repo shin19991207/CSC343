@@ -93,7 +93,7 @@
 
 - Make all combos that should have occurred .
 - Subtract those that did occur to find those that didn’t always (These are failures.)
-- Subtract the failures fro ball to get the answer.
+- Subtract the failures from all to get the answer.
 
 ## Basic SQL
 
