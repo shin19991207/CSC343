@@ -2,9 +2,9 @@
 
 ## Table of Contents
 
-* [Midterm Review](#midterm-review)
-  * [Relational Algebra](#relational-algebra)
-  * [Basic SQL](#basic-sql)
+* [Terminology](#terminology)
+* [Relational Algebra](#relational-algebra)
+* [Basic SQL](#basic-sql)
 * [Embedded SQL](#embedded-sql)
 * [Data Definition Language](#data-definition-language)
 * [Design Theory for Relational Databases](#design-theory-for-relational-databases)
@@ -18,9 +18,7 @@
 
 
 
-# Midterm Review
-
-### Terminology 
+## Terminology 
 
 * Schema: Teams(Name, HomeField, Coach)
 
